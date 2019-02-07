@@ -1,0 +1,192 @@
+
+<!--
+# Copyright (c) 2019, Si Hay Sistema and contributors
+# For license information, please see license.txt
+-->
+<!-- ############################## 1. ESTILO INICIA ############################## -->
+
+<!-- ###################  El informesolo puede accesar datos del client side ############## -->
+<style>
+    @page {
+        /* en-US: This attribute establishes the page size in W x H for any browser*/
+        /* Size attribute is always width x height, leave single whitespace, and specify units.*/
+        /* Letter Landscape: 279mm 216mm*/
+        /* US Legal Landscape: 356mm 216mm; */
+        /* Guatemalan Oficio Landscape: 330mm 216mm; */
+        /* Letter Portrait: 216mm 279mm; */
+        /* US Legal Portrait: 216mm 356mm; */
+        /* Guatemalan Oficio Portrait: 216mm 330mm; */
+        size: 330mm 216mm; 
+         /* Chrome sets own margins, we change these printer settings */
+         /* Order: Top, Right, Bottom, Left*/
+        margin: 0mm 5mm 5mm 5mm;
+        /* Could also use margin-top: 5mm; margin-right: 5mm; margin-bottom: 5mm; margin-left: 5mm; */
+    }
+    .print-format {
+        /*background-color: cornflowerblue !important;*/
+        background-color: white !important;
+        box-shadow: 0px 0px 9px rgba(0,0,0,0.5);
+        max-width: 320mm !important;
+        min-height: 180mm !important;
+        padding: .00mm !important;
+        margin: auto !important;
+        /* margin-top: 0mm !important;
+        margin-right: 0mm !important;
+        margin-bottom: 0mm !important;
+        margin-left: 0mm !important; */
+        font-size: .7em !important;
+	    font-family: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
+	    -webkit-print-color-adjust:exact;
+    }
+    /*This is for the print heading area right above the table*/
+    .print-heading {
+        text-align: center !important;
+	    text-transform: None !important;
+        color: #666 !important;
+	    padding-bottom: 0px !important;
+	    margin-bottom: 0px !important;
+	    border-bottom: 0px solid #d1d8dd !important;
+    }
+    .print-heading h2 {
+	    font-size: 18px !important;
+        margin: 0px !important;
+    }
+    .print-heading h4 {
+        font-size: 12px !important;
+	    margin-top: 5px !important;
+        margin-bottom: 0px !important;
+        padding-bottom: 0px !important;
+    }
+    .print-heading h5 {
+        font-size: 10px !important;
+	    margin-top: 5px !important;
+        margin-bottom: 0px !important;
+        padding-bottom: 0px !important;
+    }
+    .print-format tr {
+        /*Turns row borders on or off and adjusts size */
+	    border-bottom: 0px !important;
+        border-right: 1px !important;
+        border-bottom: 0px !important;
+        border-left: 0px !important;
+        /* Adds padding with size specification to row */
+        padding-top: 0px !important;
+        padding-right: 0px !important;
+        padding-bottom: 0px !important;
+        padding-left: 0px !important;
+        /* aligns the text inside the row vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+        vertical-align: middle !important;
+    }
+    .print-format th {
+        /* Font size of all table header cells */
+        font-size: 1.0em;
+        /* background color of all header cells*/
+	    background-color: #eee !important;
+	    border-bottom: 0px !important;
+        border-right: 0px !important;
+        border-bottom: 0px !important;
+        border-left: 0px !important;
+        padding-top: 1px !important;
+        padding-right: 1px !important;
+        padding-bottom: 1px !important;
+        padding-left: 1px !important;
+         /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+         vertical-align: middle !important;
+    }
+    /* Table divisions or cells styles */
+    .print-format td {
+        /* Font size of all table division or cells */
+        font-size: .8em;
+        /* background color of all table division or cells*/
+	    background-color: None !important;
+        /*Turns borders on or off and sets color */
+	    border-bottom: 0px !important;
+        border-right: 1px !important;
+        border-bottom: 0px !important;
+        border-left: 0px !important;
+        /* Padding size from border to inside text */
+        padding-top: 1px !important;
+        padding-right: 1px !important;
+        padding-bottom: 1px !important;
+        padding-left: 1px !important;
+        /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+        vertical-align: middle !important;
+    }
+    
+    table { page-break-inside: auto; }
+    tr    { 
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    thead { 
+        display:table-header-group
+    }
+    tfoot {
+        display:table-footer-group
+    }
+    .print-format > img.one {
+        /*height: 15%cm !important;*/
+        width: 10% !important;
+        /*max-height: 1.0cm !important;*/
+        /* max-width: 1.0cm !important;*/
+        position:absolute !important;
+    }
+    /* Sets the sheet size for Landscape printing on [Report name] > Menu > Print command*/
+    /* Also sets the color and margins.*/
+    /* Box shadow is for the actual box containing the data. Nothing outside of this will print.*/
+    body {
+        background-color: #DDD !important;
+        /* background-color: rgb(235, 60, 197) !important;*/
+        margin: 0mm;
+        padding: 0mm;
+    }
+    </style>
+<!-- ####################  COMPANY LOGO BEGINS #################### -->
+<img class="one" src="/files/company-logo.png" />
+<!-- #####################  COMPANY LOGO ENDS ##################### -->
+
+<!-- #################  OPTIONAL COMPANY LETTERHEAD BEGINS ################# -->
+<div style="margin-bottom: 7px;" class="text-center">
+	{%= frappe.boot.letter_heads[filters.letter_head || frappe.defaults.get_default("letter_head")] %}
+</div>
+<!-- #################  OPTIONAL COMPANY LETTERHEAD ENDS ################# -->
+
+<!-- #########################  REPORT TITLE BEGINS ######################## -->
+<h2 class="print-heading">{%= __("Libro de Salarios") %}</h2>
+<!-- ##########################  REPORT TITLE ENDS ######################### -->
+<!-- #########################  REPORT SUBTITLE BEGINS ######################## -->
+<h5 class="print-heading">{{ __("Desde") }} {%= filters.date_range[0] %} {{ __("to") }} {%= filters.date_range[1] %}</h5>
+<!-- #########################  REPORT SUBTITLE ENDS ######################## -->
+<!-- #########################  TABLE BEGINS ######################## -->
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			{% for(var i=1, l=report.columns.length; i<l; i++) { %}
+				<th class="text-right">{%= report.columns[i].label %}{%= report.columns[i].len %}</th>
+			{% } %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for(var j=0, k=data.length; j<k; j++) { %}
+			{%
+				var row = data[j];
+			%}
+			<tr>
+				{% for(var i=1, l=report.columns.length; i<l; i++) { %}
+					<td class="text-right">
+						{% var fieldname = report.columns[i].field; %}
+						{% if (report.columns[i].fieldtype=='Currency' && !isNaN(row[fieldname])) { %}
+							{%= format_currency(row[fieldname]) %}
+						{% } else { %}
+							{% if (!is_null(row[fieldname])) { %}
+								{%= row[fieldname] %}
+							{% } %}
+						{% } %}
+					</td>
+				{% } %}
+			</tr>
+		{% } %}
+	</tbody>
+</table>
+<!-- #########################  TABLE BEGINS ######################## -->
+<p class="text-left text-muted">{{ __("Printed On") }} {%= dateutil.str_to_user(dateutil.get_datetime_as_string()) %}</p>
