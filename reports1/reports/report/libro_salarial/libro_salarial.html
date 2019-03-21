@@ -3,190 +3,1221 @@
 # Copyright (c) 2019, Si Hay Sistema and contributors
 # For license information, please see license.txt
 -->
+
 <!-- ############################## 1. ESTILO INICIA ############################## -->
 
 <!-- ###################  El informesolo puede accesar datos del client side ############## -->
 <style>
-    @page {
-        /* en-US: This attribute establishes the page size in W x H for any browser*/
-        /* Size attribute is always width x height, leave single whitespace, and specify units.*/
-        /* Letter Landscape: 279mm 216mm*/
-        /* US Legal Landscape: 356mm 216mm; */
-        /* Guatemalan Oficio Landscape: 330mm 216mm; */
-        /* Letter Portrait: 216mm 279mm; */
-        /* US Legal Portrait: 216mm 356mm; */
-        /* Guatemalan Oficio Portrait: 216mm 330mm; */
-        size: 330mm 216mm; 
-         /* Chrome sets own margins, we change these printer settings */
-         /* Order: Top, Right, Bottom, Left*/
-        margin: 0mm 5mm 5mm 5mm;
-        /* Could also use margin-top: 5mm; margin-right: 5mm; margin-bottom: 5mm; margin-left: 5mm; */
-    }
-    .print-format {
-        /*background-color: cornflowerblue !important;*/
-        background-color: white !important;
-        box-shadow: 0px 0px 9px rgba(0,0,0,0.5);
-        max-width: 320mm !important;
-        min-height: 180mm !important;
-        padding: .00mm !important;
-        margin: auto !important;
-        /* margin-top: 0mm !important;
-        margin-right: 0mm !important;
-        margin-bottom: 0mm !important;
-        margin-left: 0mm !important; */
-        font-size: .7em !important;
-	    font-family: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
-	    -webkit-print-color-adjust:exact;
-    }
-    /*This is for the print heading area right above the table*/
-    .print-heading {
-        text-align: center !important;
-	    text-transform: None !important;
-        color: #666 !important;
-	    padding-bottom: 0px !important;
-	    margin-bottom: 0px !important;
-	    border-bottom: 0px solid #d1d8dd !important;
-    }
-    .print-heading h2 {
-	    font-size: 18px !important;
-        margin: 0px !important;
-    }
-    .print-heading h4 {
-        font-size: 12px !important;
-	    margin-top: 5px !important;
-        margin-bottom: 0px !important;
-        padding-bottom: 0px !important;
-    }
-    .print-heading h5 {
-        font-size: 10px !important;
-	    margin-top: 5px !important;
-        margin-bottom: 0px !important;
-        padding-bottom: 0px !important;
-    }
-    .print-format tr {
-        /*Turns row borders on or off and adjusts size */
-	    border-bottom: 0px !important;
-        border-right: 1px !important;
-        border-bottom: 0px !important;
-        border-left: 0px !important;
-        /* Adds padding with size specification to row */
-        padding-top: 0px !important;
-        padding-right: 0px !important;
-        padding-bottom: 0px !important;
-        padding-left: 0px !important;
-        /* aligns the text inside the row vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
-        vertical-align: middle !important;
-    }
-    .print-format th {
-        /* Font size of all table header cells */
-        font-size: 1.0em;
-        /* background color of all header cells*/
-	    background-color: #eee !important;
-	    border-bottom: 0px !important;
-        border-right: 0px !important;
-        border-bottom: 0px !important;
-        border-left: 0px !important;
-        padding-top: 1px !important;
-        padding-right: 1px !important;
-        padding-bottom: 1px !important;
-        padding-left: 1px !important;
-         /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
-         vertical-align: middle !important;
-    }
-    /* Table divisions or cells styles */
-    .print-format td {
-        /* Font size of all table division or cells */
-        font-size: .8em;
-        /* background color of all table division or cells*/
-	    background-color: None !important;
-        /*Turns borders on or off and sets color */
-	    border-bottom: 0px !important;
-        border-right: 1px !important;
-        border-bottom: 0px !important;
-        border-left: 0px !important;
-        /* Padding size from border to inside text */
-        padding-top: 1px !important;
-        padding-right: 1px !important;
-        padding-bottom: 1px !important;
-        padding-left: 1px !important;
-        /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
-        vertical-align: middle !important;
-    }
+        @page {
+            /* en-US: This attribute establishes the page size in W x H for any browser*/
+            /* Size attribute is always width x height, leave single whitespace, and specify units.*/
+            /* Letter Landscape: 279mm 216mm*/
+            /* US Legal Landscape: 356mm 216mm; */
+            /* Guatemalan Oficio Landscape: 330mm 216mm; */
+            /* Letter Portrait: 216mm 279mm; */
+            /* US Legal Portrait: 216mm 356mm; */
+            /* Guatemalan Oficio Portrait: 216mm 330mm; */
+            size: 330mm 216mm !important;
+             /* Chrome sets own margins, we change these printer settings */
+             /* Order: Top, Right, Bottom, Left*/
+            margin: 0mm 5mm 5mm 5mm;
+            /* Could also use margin-top: 5mm; margin-right: 5mm; margin-bottom: 5mm; margin-left: 5mm; */
+        }
+        body {
+            background-color: #DDD !important;
+            /* background-color: rgb(235, 60, 197) !important;*/
+            margin: 0mm;
+            padding: 0mm;
+        }
+        .print-format {
+            /*background-color: cornflowerblue !important;*/
+            background-color: white !important;
+            box-shadow: 0px 0px 9px rgba(0,0,0,0.5);
+            max-width: 320mm !important;
+            min-height: 180mm !important;
+            padding: .00mm !important;
+            margin: auto !important;
+            /* margin-top: 0mm !important;
+            margin-right: 0mm !important;
+            margin-bottom: 0mm !important;
+            margin-left: 0mm !important; */
+            font-size: .7em !important;
+            /*font-family: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif !important;*/
+            font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            -webkit-print-color-adjust:exact;
+        }
+        table {
+            page-break-inside: auto;
+        }
+        thead { 
+            display:table-header-group;
+        }
+        tr { 
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+        .table {
+            /* width: 320mm !important; */
+            table-layout: fixed !important;
+            overflow: visible !important;
+            /* width: 100% !important; */
+            }
+        /*This is for the print heading area right above the table*/
+        .print-heading {
+            text-align: center !important;
+            text-transform: None !important;
+            color: #666 !important;
+            padding-bottom: 0px !important;
+            margin-bottom: 0px !important;
+            border-bottom: 0px solid #d1d8dd !important;
+        }
+        .print-heading h2 {
+            font-size: 18px !important;
+            margin: 0px !important;
+            border-bottom: 0px solid #666 !important;
+        }
+        .print-heading h4 {
+            font-size: 12px !important;
+            margin-top: 5px !important;
+            margin-bottom: 0px !important;
+            padding-bottom: 0px !important;
+            border-bottom: 0px solid #666 !important;
+        }
+        .print-heading h5 {
+            font-size: 10px !important;
+            margin-top: 5px !important;
+            margin-bottom: 0px !important;
+            padding-bottom: 0px !important;
+            border-bottom: 0px solid #666 !important;
+        }
+        .main-data tr {
+            /*Turns row borders on or off and adjusts size */
+            border-bottom: 0px !important;
+            border-right: 1px !important;
+            border-bottom: 0px !important;
+            border-left: 0px !important;
+            /* Adds padding with size specification to row */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 0px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the row vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: middle !important;
+        }
+        .print-format th {
+            /* Font size of all table header cells */
+            /* font-size: .5em !important; */
+            color: #8F99A5 !important;
+            /* background color of all header cells #F7FAFC or */
+            background-color: #eee !important;
+            /* Collapses border in on itself for a single line*/
+            border-collapse: collapse;
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 1px solid #D2D8DC !important;
+            border-bottom: 0px !important;
+            border-left: 1px !important;
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+             /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: middle !important;
+            overflow: hidden !important;
+        }
+        /* Table divisions or cells styles */
+        .main-data td {
+            /* Font size of all table division or cells */
+            /* font-size: .5em !important; */
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 1px solid #D2D8DC !important;
+            border-bottom: 0px !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: middle !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        
+        .table-employee-info table {
+            /*width: 320mm !important;*/
+            table-layout: fixed !important;
+            border: 0 !important;
+            height: 20mm !important;
+            overflow: hidden !important;
+            /* width: 100% !important; */
+            }
+        .employee-info tr {
+            /*Turns row borders on or off and adjusts size */
+            border: 0 !important;
+            height: 50mm !important;
+            /* Adds padding with size specification to row */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 0px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the row vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+        }
+        .employee-info td {
+            /* Font size of all table division or cells */
+            /* font-size: .5em !important; */
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            /* border-top: 0px !important; */
+            /* border-right: 0px !important; */
+            /* border-bottom: 0px !important; */
+            /* border-left: 0px !important; */
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: middle !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-00-employee-info {
+            width: 44mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            /* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 700 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 1px solid #D2D8DC !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 0px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: bottom !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-01-employee-info {
+            width: 12mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            /* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 700 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0 hidden !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 0px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: bottom !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-02-employee-info {
+            width: 17mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            /* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 700 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 1px solid #D2D8DC !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 1px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: bottom !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-03-employee-info {
+            width: 13mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            /* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 700 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 1px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: bottom !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-04-employee-info {
+            width: 17mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            /* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 700 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 1px solid #D2D8DC !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 1px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: bottom !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-05-employee-info {
+            width: 32mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            /* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 700 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 1px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: bottom !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-06-employee-info {
+            width: 51mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            /* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 700 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 1px solid #D2D8DC !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 1px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: bottom !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-07-employee-info {
+            width: 36mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            /* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 700 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: bottom !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-08-employee-info {
+            width: 54mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            /* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 700 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 1px solid #D2D8DC !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: bottom !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-09-employee-info {
+            width: 5mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            /* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 700 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 1px solid #D2D8DC !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: bottom !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-00-employee-info-legend {
+            width: 44mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;/* normal, bold, bolder, lighter or 100 as very thin, 400 as normal, 700 as bold up to 900 */
+            font-weight: 400 !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px hidden !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 1px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: top !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-01-employee-info {
+            width: 12mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0 hidden !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 1px !important;
+            padding-left: 0px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: top !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-02-employee-info-legend {
+            width: 17mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px hidden !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: top !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-03-employee-info-legend {
+            width: 13mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: top !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-04-employee-info-legend {
+            width: 17mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 1px hidden !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: top !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-05-employee-info-legend {
+            width: 32mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: top !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-06-employee-info-legend {
+            width: 51mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px hidden !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: top !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-07-employee-info-legend {
+            width: 36mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: top !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-08-employee-info-legend {
+            width: 54mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px hidden !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: top !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-09-employee-info-legend {
+            width: 5mm !important;
+            /* Font size of this table division or cell */
+            font-size: .5em !important;
+            text-align: center !important;
+            /* background color of all table division or cells*/
+            background-color: None !important;
+            /*Turns borders on or off and sets color */
+            /* border values are px, style, color:  1px solid, dotted, dashed #666  https://www.w3schools.com/css/css_border.asp */
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 0px hidden !important;
+            border-left: 0px !important;
+            /* Padding size from border to inside text */
+            padding-top: 1px !important;
+            padding-right: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 1px !important;
+            /* aligns the text inside the cell vertically, options: top, middle, bottom, initial, inherit, text-top, text-bottom, super, sub, baseline */
+            vertical-align: top !important;
+            /* https://stackoverflow.com/questions/446624/table-cell-widths-fixing-width-wrapping-truncating-long-words */
+            overflow: hidden !important;
+        }
+        .column-00-head {
+            width: 5mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-01-head {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-02-head {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-03-head {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-04-head {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-04-head-2-col-span {
+            width: 30mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-05-head {
+            width: 17mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-06-head {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-06-head-4-col-span {
+            width: 40mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-07-head {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-08-head {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-09-head {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-10-head {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-11-head {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-11-head-3-col-span {
+            width: 30mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-12-head {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-13-head {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-14-head {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-15-head {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-16-head {
+            width: 16mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-17-head {
+            width: 30mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-18-head {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+        }
+        .column-00-data {
+            width: 5mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-01-data {
+            width: 5mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-02-data {
+            width: 5mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-03-data {
+            width: 5mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-04-data {
+            width: 10mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-05-data {
+            width: 12mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-06-data {
+            width: 20mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-07-data {
+            width: 20mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-08-data {
+            width: 20mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-09-data {
+            width: 20mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-10-data {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-11-data {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-12-data {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-13-data {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-14-data {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-15-data {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-16-data {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-17-data {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-18-data {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .column-19-data {
+            width: 15mm !important;
+            font-size: .5em !important;
+            text-align: right !important;
+        }
+        .print-format > img.one {
+            /*height: 15%cm !important;*/
+            width: 10% !important;
+            /*max-height: 1.0cm !important;*/
+            /* max-width: 1.0cm !important;*/
+            position:absolute !important;
+        }
+        /* Sets the sheet size for Landscape printing on [Report name] > Menu > Print command*/
+        /* Also sets the color and margins.*/
+        /* Box shadow is for the actual box containing the data. Nothing outside of this will print.*/
     
-    table { page-break-inside: auto; }
-    tr    { 
-        page-break-inside: avoid;
-        page-break-after: auto;
-    }
-    thead { 
-        display:table-header-group
-    }
-    tfoot {
-        display:table-footer-group
-    }
-    .print-format > img.one {
-        /*height: 15%cm !important;*/
-        width: 10% !important;
-        /*max-height: 1.0cm !important;*/
-        /* max-width: 1.0cm !important;*/
-        position:absolute !important;
-    }
-    /* Sets the sheet size for Landscape printing on [Report name] > Menu > Print command*/
-    /* Also sets the color and margins.*/
-    /* Box shadow is for the actual box containing the data. Nothing outside of this will print.*/
-    body {
-        background-color: #DDD !important;
-        /* background-color: rgb(235, 60, 197) !important;*/
-        margin: 0mm;
-        padding: 0mm;
-    }
-    </style>
-<!-- ####################  COMPANY LOGO BEGINS #################### -->
-<img class="one" src="/files/company-logo.png" />
-<!-- #####################  COMPANY LOGO ENDS ##################### -->
-
-<!-- #################  OPTIONAL COMPANY LETTERHEAD BEGINS ################# -->
-<div style="margin-bottom: 7px;" class="text-center">
-	{%= frappe.boot.letter_heads[filters.letter_head || frappe.defaults.get_default("letter_head")] %}
-</div>
-<!-- #################  OPTIONAL COMPANY LETTERHEAD ENDS ################# -->
-
-<!-- #########################  REPORT TITLE BEGINS ######################## -->
-<h2 class="print-heading">{%= __("Libro de Salarios") %}</h2>
-<!-- ##########################  REPORT TITLE ENDS ######################### -->
-<!-- #########################  REPORT SUBTITLE BEGINS ######################## -->
-<h5 class="print-heading">{{ __("Desde") }} {%= filters.date_range[0] %} {{ __("to") }} {%= filters.date_range[1] %}</h5>
-<!-- #########################  REPORT SUBTITLE ENDS ######################## -->
-<!-- #########################  TABLE BEGINS ######################## -->
-<table class="table table-bordered">
-	<thead>
-		<tr>
-			{% for(var i=1, l=report.columns.length; i<l; i++) { %}
-				<th class="text-right">{%= report.columns[i].label %}{%= report.columns[i].len %}</th>
-			{% } %}
-		</tr>
-	</thead>
-	<tbody>
-		{% for(var j=0, k=data.length; j<k; j++) { %}
-			{%
-				var row = data[j];
-			%}
-			<tr>
-				{% for(var i=1, l=report.columns.length; i<l; i++) { %}
-					<td class="text-right">
-						{% var fieldname = report.columns[i].field; %}
-						{% if (report.columns[i].fieldtype=='Currency' && !isNaN(row[fieldname])) { %}
-							{%= format_currency(row[fieldname]) %}
-						{% } else { %}
-							{% if (!is_null(row[fieldname])) { %}
-								{%= row[fieldname] %}
-							{% } %}
-						{% } %}
-					</td>
-				{% } %}
-			</tr>
-		{% } %}
-	</tbody>
-</table>
-<!-- #########################  TABLE BEGINS ######################## -->
-<p class="text-left text-muted">{{ __("Printed On") }} {%= dateutil.str_to_user(dateutil.get_datetime_as_string()) %}</p>
+        tfoot {
+            display:table-footer-group
+        }
+        </style>
+    <!-- ####################  COMPANY LOGO BEGINS #################### -->
+    <img class="one" src="/files/company-logo.png" />
+    <!-- #####################  COMPANY LOGO ENDS ##################### -->
+    
+    <!-- #################  OPTIONAL COMPANY LETTERHEAD BEGINS ################# -->
+    <div style="margin-bottom: 7px;" class="">
+        {%= frappe.boot.letter_heads[filters.letter_head || frappe.defaults.get_default("letter_head")] %}
+    </div>
+    <!-- #################  OPTIONAL COMPANY LETTERHEAD ENDS ################# -->
+    
+    <!-- #########################  REPORT TITLE BEGINS ######################## -->
+    <h2 class="print-heading">{%= __("Libro de Salarios") %}</h2>
+    <!-- ##########################  REPORT TITLE ENDS ######################### -->
+    <!-- #########################  REPORT SUBTITLE BEGINS ######################## -->
+    <h5 class="print-heading">{{ __("Desde") }} {%= filters.date_range[0] %} {{ __("to") }} {%= filters.date_range[1] %}</h5>
+    <!-- #########################  REPORT SUBTITLE ENDS ######################## -->
+    <!-- #########################  TABLE BEGINS ######################## -->
+    <!-- Rowspan will span the amount of rows you name. If you wish to "merge" the cell(s) with the one(s) below! -->
+    <!-- The corresponding row cell(s) below the rowspan declaration, must not be in the next row declaration -->
+    <!-- Colspan will span the amount of columns you name. If you wish to "merge" the cell(s) with the ones on the right! -->
+    <!--https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_td_rowspan-->
+    <!--https://www.computerhope.com/issues/ch001655.htm-->
+    <!-- PLEASE NOTE!  Always add an EMPTY th  and EMPTY td as the last column element, without content, so it serves as a buffer and resizes adequately -->
+    <!--For cells or head cells that span multiple columns their styles must have width which equals total cell expansion length you wish.-->
+    <table class="table">
+        <tbody>
+            <tr class="employee-info">
+                <td class="column-00-employee-info">field: employee_name</td>
+                <td class="column-01-employee-info"></td>
+                <td class="column-02-employee-info">formula: date_of_birth (Jinja formula to calculate age)</td>
+                <td class="column-03-employee-info"></td>
+                <td class="column-04-employee-info">field: gender</td>
+                <td class="column-05-employee-info"></td>
+                <td class="column-06-employee-info">custom_field: nationality</td>
+                <td class="column-07-employee-info"></td>
+                <td class="column-08-employee-info">field: designation</td>
+            </tr>
+            <tr class="employee-info">
+                <td class="column-00-employee-info-legend">Nombre del Trabajador</td>
+                <td class="column-01-employee-info-legend"></td>
+                <td class="column-02-employee-info-legend">Edad</td>
+                <td class="column-03-employee-info-legend"></td>
+                <td class="column-04-employee-info-legend">Sexo</td>
+                <td class="column-05-employee-info-legend"></td>
+                <td class="column-06-employee-info-legend">Nacionalidad</td>
+                <td class="column-07-employee-info-legend"></td>
+                <td class="column-08-employee-info-legend">Ocupación o Puesto</td>
+        </tr>
+        <tr class="employee-info">
+                <td class="column-00-employee-info">custom_field: afiliacion_igss</td>
+                <td class="column-01-employee-info"></td>
+                <td class=""></td>
+                <td class="column-02-employee-info" colspan="2">custom_field: numero_dpi 1970876710102</td>
+                <td class="column-05-employee-info"></td>
+                <td class="column-06-employee-info">field:  date_of_joining (formatted!)</td>
+                <td class="column-07-employee-info"></td>
+                <td class="column-08-employee-info">--</td>
+        </tr>
+        <tr class="employee-info">
+                <td class="column-00-employee-info-legend">Numero de Afiliación al IGSS</td>
+                <td class="column-01-employee-info-legend"></td>
+                <td class="column-02-employee-info-legend"></td>
+                <td class="column-03-employee-info-legend" colspan="2">Numero de DPI o permiso de Trabajo</td>
+                <td class="column-05-employee-info-legend"></td>
+                <td class="column-06-employee-info-legend">Fecha de Ingreso</td>
+                <td class="column-07-employee-info-legend"></td>
+                <td class="column-08-employee-info-legend">Fecha de Finalización de relación laboral</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered main-data">
+        <thead>
+           <tr>
+                <th class="column-00-head" rowspan="2">#</th>
+                <th class="column-01-head" rowspan="2">Periodo de trabajo</th>
+                <th class="column-02-head" rowspan="2">Salario en Quetzales</th>
+                <th class="column-03-head" rowspan="2">Dias Trabajados</th>
+                <th class="column-04-head-2-col-span" colspan="2">Horas Trabajadas</th>
+                <th class="column-06-head-4-col-span" colspan="4">Salario Devengado</th>
+                <th class="column-10-head" rowspan="2">Salario Total</th>
+                <th class="column-11-head-3-col-span" colspan="3">Deducciones Legales</th>
+                <th class="column-14-head" rowspan="2">Decreto 42-92, Aguinaldo y Otros</th>
+                <th class="column-15-head" rowspan="2">Bonificacion Incentivo Dec 37-2001</th>
+                <th class="column-16-head" rowspan="2">Liquido a Recibir</th>
+                <th class="column-17-head" rowspan="2">Firma del Empleado</th>
+                <th class="column-18-head" rowspan="2">Observaciones</th>
+                <th></th>
+            </tr>
+            <tr>
+                    <th class="column-04-head">Ordinarias</th>
+                    <th class="column-05-head">Extraordinarias</th>
+                    <th class="column-06-head">Ordinario</th>
+                    <th class="column-07-head">Extra-ordinario</th>
+                    <th class="column-08-head">Séptimos y Asuetos</th>
+                    <th class="column-09-head">Vacaciones</th>
+                    <th class="column-11-head">IGSS</th>
+                    <th class="column-12-head">Otras Deducciones</th>
+                    <th class="column-13-head">Total Deducciones</th>
+                    <th></th>
+                </tr>
+        </thead>
+        <tbody>
+                {% for(var j=0, k=data.length; j<k; j++) { %}
+                    {%
+                        var row = data[j];
+                    %}
+                <tr>
+                    <td class="column-00-data">
+                        {% var fieldname = report.columns[0].field; %}
+                        {% if (report.columns[0].fieldtype=='Currency' && !isNaN(row[fieldname])) { %}
+                            {%= format_currency(row[fieldname]) %}
+                        {% } else { %}
+                            {% if (!is_null(row[fieldname])) { %}
+                                {%= row[fieldname] %}
+                            {% } %}
+                        {% } %}
+                    </td>
+                    <td class="column-01-data">
+                        {% var fieldname1 = report.columns[1].field; %}
+                        {% if (report.columns[1].fieldtype=='Currency' && !isNaN(row[fieldname1])) { %}
+                            {%= format_currency(row[fieldname1]) %}
+                        {% } else { %}
+                            {% if (!is_null(row[fieldname1])) { %}
+                                {%= row[fieldname1] %}
+                            {% } %}
+                        {% } %}
+                        a
+                        {% var fieldname2 = report.columns[2].field; %}
+                        {% if (report.columns[2].fieldtype=='Currency' && !isNaN(row[fieldname2])) { %}
+                            {%= format_currency(row[fieldname2]) %}
+                        {% } else { %}
+                            {% if (!is_null(row[fieldname2])) { %}
+                                {%= row[fieldname2] %}
+                            {% } %}
+                        {% } %}
+                    </td>
+                    <td class="column-02-data">
+                        {% var fieldname8 = report.columns[8].field; %}
+                        {% if (report.columns[8].fieldtype=='Currency' && !isNaN(row[fieldname8])) { %}
+                            {%= format_currency(row[fieldname8]) %}
+                        {% } else { %}
+                            {% if (!is_null(row[fieldname8])) { %}
+                                {%= row[fieldname8] %}
+                            {% } %}
+                        {% } %}
+                    </td>
+                    <td class="column-03-data">
+                    </td>
+                    <td class="column-04-data">4</td>
+                    <td class="column-05-data">5</td>
+                    <td class="column-06-data">6</td>
+                    <td class="column-07-data">7</td>
+                    <td class="column-08-data">8</td>
+                    <td class="column-09-data">9</td>
+                    <td class="column-10-data">10</td>
+                    <td class="column-11-data">11</td>
+                    <td class="column-12-data">12</td>
+                    <td class="column-13-data">13</td>
+                    <td class="column-14-data">14</td>
+                    <td class="column-15-data">15</td>
+                    <td class="column-16-data">16</td>
+                    <td class="column-17-data">17</td>
+                    <td class="column-18-data">18</td>
+                    <td></td>
+                </tr>
+            {% } %}
+        </tbody>
+    </table>
+    <table class="table table-bordered main-data">
+        <thead>
+            <tr>
+                <th class="column-00-data">{%= report.columns[0].label %}</th>
+                <th class="column-01-data">{%= report.columns[1].label %}</th>
+                <th class="column-02-data">{%= report.columns[2].label %}</th>
+                <th class="column-03-data">{%= report.columns[3].label %}</th>
+                <th class="column-04-data">{%= report.columns[4].label %}</th>
+                <th class="column-05-data">{%= report.columns[5].label %}</th>
+                <th class="column-06-data">{%= report.columns[6].label %}</th>
+                <th class="column-07-data">{%= report.columns[7].label %}</th>
+                <th class="column-08-data">{%= report.columns[8].label %}</th>
+                <th class="column-09-data">{%= report.columns[9].label %}</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for(var j=0, k=data.length; j<k; j++) { %}
+                    {%
+                        var row = data[j];
+                    %}
+                <tr>
+                        <td class="text-right column0">
+                            {% var fieldname = report.columns[0].field; %}
+                            {% if (report.columns[0].fieldtype=='Currency' && !isNaN(row[fieldname])) { %}
+                                {%= format_currency(row[fieldname]) %}
+                            {% } else { %}
+                                {% if (!is_null(row[fieldname])) { %}
+                                    {%= row[fieldname] %}
+                                {% } %}
+                            {% } %}
+                        </td>
+                        <td class="text-right column1">
+                                {% var fieldname1 = report.columns[1].field; %}
+                                {% if (report.columns[1].fieldtype=='Currency' && !isNaN(row[fieldname1])) { %}
+                                    {%= format_currency(row[fieldname1]) %}
+                                {% } else { %}
+                                    {% if (!is_null(row[fieldname1])) { %}
+                                        {%= row[fieldname1] %}
+                                    {% } %}
+                                {% } %}
+                        </td>
+                        <td class="text-right column2">
+                                {% var fieldname2 = report.columns[2].field; %}
+                                {% if (report.columns[2].fieldtype=='Currency' && !isNaN(row[fieldname2])) { %}
+                                    {%= format_currency(row[fieldname2]) %}
+                                {% } else { %}
+                                    {% if (!is_null(row[fieldname2])) { %}
+                                        {%= row[fieldname2] %}
+                                    {% } %}
+                                {% } %}
+                        </td>
+                        <td class="text-right column3">
+                                {% var fieldname3 = report.columns[3].field; %}
+                                {% if (report.columns[3].fieldtype=='Currency' && !isNaN(row[fieldname3])) { %}
+                                    {%= format_currency(row[fieldname3]) %}
+                                {% } else { %}
+                                    {% if (!is_null(row[fieldname3])) { %}
+                                        {%= row[fieldname3] %}
+                                    {% } %}
+                                {% } %}
+                        </td>
+                        <td class="text-right column4">
+                                {% var fieldname4 = report.columns[4].field; %}
+                                {% if (report.columns[4].fieldtype=='Currency' && !isNaN(row[fieldname4])) { %}
+                                    {%= format_currency(row[fieldname4]) %}
+                                {% } else { %}
+                                    {% if (!is_null(row[fieldname4])) { %}
+                                        {%= row[fieldname4] %}
+                                    {% } %}
+                                {% } %}
+                        </td>
+                        <td class="text-right column5">
+                                {% var fieldname5 = report.columns[5].field; %}
+                                {% if (report.columns[5].fieldtype=='Currency' && !isNaN(row[fieldname5])) { %}
+                                    {%= format_currency(row[fieldname5]) %}
+                                {% } else { %}
+                                    {% if (!is_null(row[fieldname5])) { %}
+                                        {%= row[fieldname5] %}
+                                    {% } %}
+                                {% } %}
+                        </td>
+                        <td class="text-right column6">
+                                {% var fieldname6 = report.columns[6].field; %}
+                                {% if (report.columns[6].fieldtype=='Currency' && !isNaN(row[fieldname6])) { %}
+                                    {%= format_currency(row[fieldname6]) %}
+                                {% } else { %}
+                                    {% if (!is_null(row[fieldname6])) { %}
+                                        {%= row[fieldname6] %}
+                                    {% } %}
+                                {% } %}
+                        </td>
+                        <td class="text-right column7">
+                                {% var fieldname7 = report.columns[7].field; %}
+                                {% if (report.columns[7].fieldtype=='Currency' && !isNaN(row[fieldname7])) { %}
+                                    {%= format_currency(row[fieldname7]) %}
+                                {% } else { %}
+                                    {% if (!is_null(row[fieldname7])) { %}
+                                        {%= row[fieldname7] %}
+                                    {% } %}
+                                {% } %}
+                        </td>
+                        <td class="text-right column8">
+                                {% var fieldname8 = report.columns[8].field; %}
+                                {% if (report.columns[8].fieldtype=='Currency' && !isNaN(row[fieldname8])) { %}
+                                    {%= format_currency(row[fieldname8]) %}
+                                {% } else { %}
+                                    {% if (!is_null(row[fieldname8])) { %}
+                                        {%= row[fieldname8] %}
+                                    {% } %}
+                                {% } %}
+                        </td>
+                        <td class="text-right column9">
+                                {% var fieldname9 = report.columns[9].field; %}
+                                {% if (report.columns[9].fieldtype=='Currency' && !isNaN(row[fieldname9])) { %}
+                                    {%= format_currency(row[fieldname9]) %}
+                                {% } else { %}
+                                    {% if (!is_null(row[fieldname9])) { %}
+                                        {%= row[fieldname9] %}
+                                    {% } %}
+                                {% } %}
+                        </td>
+                        <td class="text-right column10">
+                                {% var fieldname10 = report.columns[10].field; %}
+                                {% if (report.columns[10].fieldtype=='Currency' && !isNaN(row[fieldname10])) { %}
+                                    {%= format_currency(row[fieldname10]) %}
+                                {% } else { %}
+                                    {% if (!is_null(row[fieldname10])) { %}
+                                        {%= row[fieldname10] %}
+                                    {% } %}
+                                {% } %}
+                        </td>
+                </tr>
+            {% } %}
+        </tbody>
+    </table>
+    <!-- #########################  TABLE ENDS ######################## -->
+    <p class="text-left text-muted">{{ __("Printed On") }} {%= dateutil.str_to_user(dateutil.get_datetime_as_string()) %}</p>

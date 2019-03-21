@@ -14,18 +14,21 @@ def execute(filters=None):
 	columns, earning_types, ded_types = get_columns(salary_slips)
 	ss_earning_map = get_ss_earning_map(salary_slips)
 	ss_ded_map = get_ss_ded_map(salary_slips)
+	employee_singles = {}
 
 	# en-US: We create an empty list, to which we will add the values of each row.
 	# en-US:  The list contains within it a list of fields.  Each list of fields is a row.
 	data = []
 	for ss in salary_slips:
+		"""row = [ss.start_date, ss.end_date, ss.name, ss.employee, ss.employee_name, ss.branch, ss.department, ss.designation,
+			ss.company, ss.leave_withut_pay, ss.payment_days]"""
 		row = [ss.start_date, ss.end_date, ss.name, ss.employee, ss.employee_name, ss.branch, ss.department, ss.designation,
-			ss.company, ss.leave_withut_pay, ss.payment_days]
+			ss.company, ss.leave_without_pay, ss.payment_days, ss.total_working_days]
 
 		if not ss.branch == None:columns[3] = columns[3].replace('-1','120')
 		if not ss.department  == None: columns[4] = columns[4].replace('-1','120')
 		if not ss.designation  == None: columns[5] = columns[5].replace('-1','120')
-		if not ss.leave_withut_pay  == None: columns[9] = columns[9].replace('-1','130')
+		if not ss.leave_without_pay  == None: columns[9] = columns[9].replace('-1','130')
 			
 
 		for e in earning_types:
@@ -40,7 +43,7 @@ def execute(filters=None):
 		# Using the append method to add the row to the data list.
 		data.append(row)
 
-	return columns, data
+	return columns, data, employee_singles
 
 def get_columns(salary_slips):
 	"""
